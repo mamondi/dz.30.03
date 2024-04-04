@@ -1,5 +1,5 @@
 ﻿using System;
-//2 завдання + 4 завдання практичної
+
 namespace dz30._03
 {
     internal class Program
@@ -9,30 +9,14 @@ namespace dz30._03
             Console.InputEncoding = System.Text.Encoding.UTF8;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            Calculator calculator = new Calculator();
+            NumberChecker numberChecker = new NumberChecker();
 
-            double num1 = 10;
-            double num2 = 5;
+            int number = 17; // <- Ввід числа
 
-            Console.WriteLine($"Додавання: {calculator.Add.Invoke(num1, num2)}");
-            Console.WriteLine($"Віднімання: {calculator.Subtract.Invoke(num1, num2)}");
-            Console.WriteLine($"Множення: {calculator.Multiply.Invoke(num1, num2)}");
-        }
-    }
-
-    internal class Calculator
-    {
-        public delegate double ArithmeticOperation(double num1, double num2);
-
-        public ArithmeticOperation Add;
-        public ArithmeticOperation Subtract;
-        public ArithmeticOperation Multiply;
-
-        public Calculator()
-        {
-            Add = (x, y) => x + y;
-            Subtract = (x, y) => x - y;
-            Multiply = (x, y) => x * y;
+            Console.WriteLine($"Число {number} парне: {numberChecker.Check(number, numberChecker.IsEven)}");
+            Console.WriteLine($"Число {number} непарне: {numberChecker.Check(number, numberChecker.IsOdd)}");
+            Console.WriteLine($"Число {number} просте: {numberChecker.Check(number, numberChecker.IsPrime)}");
+            Console.WriteLine($"Число {number} є числом Фібоначчі: {numberChecker.Check(number, numberChecker.IsFibonacci)}");
         }
     }
 }
