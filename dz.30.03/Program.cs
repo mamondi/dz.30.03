@@ -1,5 +1,5 @@
 ﻿using System;
-
+//2 завдання + 4 завдання практичної
 namespace dz30._03
 {
     internal class Program
