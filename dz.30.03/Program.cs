@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Project
+namespace dz30._03
 {
     internal class Program
     {
