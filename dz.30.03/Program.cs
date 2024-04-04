@@ -9,13 +9,30 @@ namespace dz30._03
             Console.InputEncoding = System.Text.Encoding.UTF8;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            MessageDisplay messageDisplay = new MessageDisplay();
+            Calculator calculator = new Calculator();
 
-            messageDisplay.DisplayMessage("Це звичайне повідомлення.");
-            messageDisplay.DisplayMessageWithPrefix("Увага:", "Це повідомлення має префікс.");
-            messageDisplay.DisplayMessageInUppercase("Це повідомлення у верхньому регістрі.");
-            Console.WriteLine();
-            messageDisplay.DisplayCustomMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla blandit tristique enim, id vehicula lorem ultrices vitae. Ut volutpat orci eget purus porttitor, quis vulputate dolor elementum. Aliquam lacus arcu, euismod at semper eget, fermentum nec nunc. Sed vitae enim lectus. Phasellus dictum ac ligula nec egestas.");
+            double num1 = 10;
+            double num2 = 5;
+
+            Console.WriteLine($"Додавання: {calculator.Add.Invoke(num1, num2)}");
+            Console.WriteLine($"Віднімання: {calculator.Subtract.Invoke(num1, num2)}");
+            Console.WriteLine($"Множення: {calculator.Multiply.Invoke(num1, num2)}");
+        }
+    }
+
+    internal class Calculator
+    {
+        public delegate double ArithmeticOperation(double num1, double num2);
+
+        public ArithmeticOperation Add;
+        public ArithmeticOperation Subtract;
+        public ArithmeticOperation Multiply;
+
+        public Calculator()
+        {
+            Add = (x, y) => x + y;
+            Subtract = (x, y) => x - y;
+            Multiply = (x, y) => x * y;
         }
     }
 }
